@@ -500,8 +500,9 @@ async def get_index():
                     };
                     initializeChart();
                     
-                    const protocol = 'wss:';
-                    ws = new WebSocket(`${protocol}//${window.location.host}/ws`);
+                    const protocol = window.location.protocol === 'https:' ? 'wss:' : 'ws:';
+                    const wsUrl = `${protocol}//${window.location.host}/ws`;
+                    ws = new WebSocket(wsUrl);
                     
                     ws.onopen = function() {
                         document.getElementById('status').textContent = '✅ 클라우드 서버 연결 성공! 분석 시작...';
