@@ -500,7 +500,7 @@ async def get_index():
                     };
                     initializeChart();
                     
-                    const protocol = window.location.protocol === 'https:' ? 'wss:' : 'ws:';
+                    const protocol = 'wss:';
                     ws = new WebSocket(`${protocol}//${window.location.host}/ws`);
                     
                     ws.onopen = function() {
